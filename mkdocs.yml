@@ -1,0 +1,31 @@
+site_name: FlexiConc
+theme:
+  name: material
+  language: en
+
+nav:
+  - General: index.md
+  - Loading Concordance: loading_concordance.md
+  - Adding Nodes: adding_nodes.md
+  - Concordance Views: concordance_views.md
+  - Algorithms:
+      - Selection: algorithms/selection.md
+      - Sorting: algorithms/sorting.md
+      - Ranking: algorithms/ranking.md
+      - Partitioning: algorithms/partitioning.md
+      - Annotation: algorithms/annotation.md
+  - Examples: examples.md
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - admonition
+  - codehilite
+  - footnotes
+  - def_list
+  - pymdownx.details
+  - pymdownx.superfences
+
+plugins:
+  - search
+  - mkdocs-jupyter

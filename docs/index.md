@@ -1,6 +1,6 @@
-# FlexiConc Documentation
+# FlexiConc
 
-Welcome to the FlexiConc documentation. This guide provides a comprehensive overview of FlexiConc, a Python package engineered to streamline and enhance the computational analysis of concordances in corpus linguistic research.
+This guide provides a comprehensive overview of FlexiConc, a Python package engineered to streamline and enhance the computational analysis of concordances in corpus linguistic research.
 
 ---
 
