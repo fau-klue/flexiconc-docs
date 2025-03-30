@@ -1,0 +1,892 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>File: select_rank_wrapper.py - FlexiConc</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-select_rank_wrapperpy" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="FlexiConc" class="md-header__button md-logo" aria-label="FlexiConc" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FlexiConc
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File: select_rank_wrapper.py
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="FlexiConc" class="md-nav__button md-logo" aria-label="FlexiConc" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FlexiConc
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    General
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../loading_concordance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Loading Concordance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adding_nodes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adding Nodes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concordance_views/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concordance Views
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Algorithms
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Algorithms
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../selection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selection
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sorting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sorting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ranking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ranking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../partitioning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Partitioning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../annotation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Annotation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#select_by_rank" class="md-nav__link">
+    <span class="md-ellipsis">
+      select_by_rank
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-select_rank_wrapperpy">File: select_rank_wrapper.py<a class="headerlink" href="#file-select_rank_wrapperpy" title="Permanent link">&para;</a></h1>
+<h2 id="select_by_rank"><code>select_by_rank</code><a class="headerlink" href="#select_by_rank" title="Permanent link">&para;</a></h2>
+<p>Selects lines based on rank values obtained from a selected 'algo_*' key in the ordering_result["rank_keys"]
+of the active_node, using a comparison operator and value.</p>
+<p>Args are dynamically validated and extracted from the schema.</p>
+<p>Parameters:
+    conc (Union[Concordance, ConcordanceSubset]): The concordance or subset of data.
+    args (dict): Arguments include:
+        - active_node (object): The active node containing the ordering_result with rank_keys.
+        - algo_key (str): The specific algorithm key from ordering_result["rank_keys"] to use.
+                          Allowed values are those that start with "algo_". By default, the smallest key (lowest number) is used.
+        - comparison_operator (str): The comparison operator ('==', '&lt;=', '&gt;=' ,'&lt;', '&gt;'). Default is "==".
+        - value (number): The value to compare the rank keys against. Default is 0.</p>
+<p>Returns:
+    dict: A dictionary containing:
+        - "selected_lines": A sorted list of selected line IDs.
+        - "line_count": The total number of selected lines.</p>
+<hr />
+<h1 id="file-select_randompy">File: select_random.py<a class="headerlink" href="#file-select_randompy" title="Permanent link">&para;</a></h1>
+<h2 id="select_random"><code>select_random</code><a class="headerlink" href="#select_random" title="Permanent link">&para;</a></h2>
+<p>Selects a random sample of line IDs from the concordance metadata.</p>
+<p>Args are dynamically validated and extracted from the schema.</p>
+<p>Parameters:
+- conc (Union[Concordance, ConcordanceSubset]): The full concordance or a subset of it.
+- **kwargs: Arguments defined dynamically in the schema.</p>
+<p>Returns:
+- dict: A dictionary containing:
+    - "selected_lines": A list of randomly selected line IDs.
+    - "line_count": The number of selected lines.</p>
+<hr />
+<h1 id="file-sort_by_corpus_positionpy">File: sort_by_corpus_position.py<a class="headerlink" href="#file-sort_by_corpus_positionpy" title="Permanent link">&para;</a></h1>
+<h2 id="sort_by_corpus_position"><code>sort_by_corpus_position</code><a class="headerlink" href="#sort_by_corpus_position" title="Permanent link">&para;</a></h2>
+<p>Sorts the concordance or subset of data by line_id, which corresponds to the corpus position.</p>
+<p>Args are dynamically validated and extracted from the schema.</p>
+<p>Parameters:
+- conc (Union[Concordance, ConcordanceSubset]): The full concordance or a subset of it.
+- args (dict): Arguments include:
+    - No additional arguments are required for this function.</p>
+<p>Returns:
+- dict: A dictionary containing:
+    - "sort_keys": A mapping from line IDs to their sorted positions.</p>
+<hr />
+<h1 id="file-annotate_spacy_pospy">File: annotate_spacy_pos.py<a class="headerlink" href="#file-annotate_spacy_pospy" title="Permanent link">&para;</a></h1>
+<h2 id="annotate_spacy_pos"><code>annotate_spacy_pos</code><a class="headerlink" href="#annotate_spacy_pos" title="Permanent link">&para;</a></h2>
+<p>Annotates tokens with spaCy part-of-speech (POS) tags or related attributes.
+This algorithm uses spaCy to determine the tag information for each token in the specified token attribute.
+The spacy_attributes argument is always treated as a list: even if a single attribute is desired,
+it should be provided as a one-element list. The algorithm returns a DataFrame with each column corresponding
+to one of the requested attributes. The scope for this annotation is "token".</p>
+<p>Parameters:
+    conc (Concordance or ConcordanceSubset): The concordance data.
+    args (dict): A dictionary of arguments with the following keys:
+        - spacy_model (str): The spaCy model to use for POS tagging. Default is "en_core_web_sm".
+        - tokens_attribute (str): The token attribute to use for POS tagging. Default is "word".
+        - spacy_attributes (list of str): A list of spaCy token attributes to retrieve.
+          Allowed values are "pos_", "tag_", "morph", "dep_", "ent_type_". Default is ["pos_"].</p>
+<p>Returns:
+    pd.DataFrame: A DataFrame indexed by token IDs with one column per requested attribute.</p>
+<hr />
+<h1 id="file-annotate_tf_idfpy">File: annotate_tf_idf.py<a class="headerlink" href="#file-annotate_tf_idfpy" title="Permanent link">&para;</a></h1>
+<h2 id="annotate_tf_idf"><code>annotate_tf_idf</code><a class="headerlink" href="#annotate_tf_idf" title="Permanent link">&para;</a></h2>
+<p>Annotates a concordance with TF-IDF vectors computed for each line based on tokens in a specified window.</p>
+<p>Args are dynamically validated and extracted from the schema.</p>
+<p>Parameters:
+- conc (Union[Concordance, ConcordanceSubset]): The full concordance or a subset of it.
+- args (dict): Arguments include:
+    - tokens_attribute (str): The token attribute to use for creating line texts. Default is 'word'.
+    - exclude_values_attribute (str, optional): The attribute to filter out specific values.
+    - exclude_values_list (list, optional): The list of values to exclude.
+    - window_start (int): The lower bound of the token window (inclusive). Default is -5.
+    - window_end (int): The upper bound of the token window (inclusive). Default is 5.
+    - include_node (bool): Whether to include the node token (offset 0). Default is True.</p>
+<p>Returns:
+- pd.Series: A Pandas Series indexed by concordance line IDs, containing the TF-IDF vectors for each line.</p>
+<hr />
+<h1 id="file-partition_openai_semanticpy">File: partition_openai_semantic.py<a class="headerlink" href="#file-partition_openai_semanticpy" title="Permanent link">&para;</a></h1>
+<h2 id="clusteringresult"><code>ClusteringResult</code><a class="headerlink" href="#clusteringresult" title="Permanent link">&para;</a></h2>
+<p><em>No docstring provided.</em></p>
+<hr />
+<h2 id="partition_openai_semantic"><code>partition_openai_semantic</code><a class="headerlink" href="#partition_openai_semantic" title="Permanent link">&para;</a></h2>
+<p>Sends a list of lines to OpenAI and requests clustering into <code>n_partitions</code> groups with labels,
+using structured outputs for guaranteed JSON schema adherence.</p>
+<p>Args are dynamically validated and extracted from the schema.</p>
+<p>Parameters:
+- conc (Union[Concordance, ConcordanceSubset]): The full concordance or a subset of it.
+- args (dict): Arguments include:
+    - openai_api_key (str): The API key for OpenAI.
+    - n_partitions (int): The number of partitions/clusters to create. Default is 5.
+    - token_attr (str): The token attribute to use for creating line texts. Default is 'word'.
+    - model (str): The OpenAI model to use. Default is 'gpt-4o-2024-11-20'.
+    - introduction_line (str): Customizable prompt for the clustering task.</p>
+<p>Returns:
+- list: A list of dictionaries, where each dictionary contains:
+    - "label": The label of the cluster.
+    - "line_ids": A list of line IDs in the cluster.</p>
+<hr />
+<h1 id="file-partition_by_metadata_attributepy">File: partition_by_metadata_attribute.py<a class="headerlink" href="#file-partition_by_metadata_attributepy" title="Permanent link">&para;</a></h1>
+<h2 id="partition_by_metadata_attribute"><code>partition_by_metadata_attribute</code><a class="headerlink" href="#partition_by_metadata_attribute" title="Permanent link">&para;</a></h2>
+<p>Partitions the concordance data based on a specified metadata attribute and groups the lines accordingly.</p>
+<p>Args are dynamically validated and extracted from the schema.</p>
+<p>Parameters:
+- conc (Union[Concordance, ConcordanceSubset]): The full concordance or a subset of it.
+- args (dict): Arguments include:
+    - metadata_attribute (str): The metadata attribute to partition by (e.g., 'pos', 'speaker').
+    - sort_by_partition_size (bool): If True, partitions will be sorted by size in descending order.
+    - sorted_values (List[Union[str, int]], optional): If provided, partitions will be sorted by these specific values.</p>
+<p>Returns:
+- dict: A dictionary containing:
+    - "partitions": A list of dictionaries, where each dictionary has:
+        - "label": The value of the metadata attribute for this partition.
+        - "line_ids": A list of line IDs that belong to this partition.</p>
+<hr />
+<h1 id="file-select_sort_wrapperpy">File: select_sort_wrapper.py<a class="headerlink" href="#file-select_sort_wrapperpy" title="Permanent link">&para;</a></h1>
+<h2 id="select_by_sort"><code>select_by_sort</code><a class="headerlink" href="#select_by_sort" title="Permanent link">&para;</a></h2>
+<p>Selects lines based on sort keys obtained from the active_node's ordering_result['sort_keys'],
+using a comparison operator and a specified value.</p>
+<p>Args are dynamically validated and extracted from the schema.</p>
+<p>Parameters:
+    conc (Union[Concordance, ConcordanceSubset]): The concordance or subset of data.
+    args (dict): Arguments include:
+        - comparison_operator (str): The comparison operator ('==', '&lt;=', '&gt;=', '&lt;', '&gt;'). Default is "==".
+        - value (number): The value to compare the sort keys against. Default is 0.</p>
+<p>Returns:
+    dict: A dictionary containing:
+        - "selected_lines": A sorted list of selected line IDs.
+        - "line_count": The total number of selected lines.</p>
+<hr />
+<h1 id="file-sort_randompy">File: sort_random.py<a class="headerlink" href="#file-sort_randompy" title="Permanent link">&para;</a></h1>
+<h2 id="sort_random"><code>sort_random</code><a class="headerlink" href="#sort_random" title="Permanent link">&para;</a></h2>
+<p>Sorts lines pseudo-randomly while ensuring that given a specific seed,
+any pair of line_ids always appear in the same relative order regardless
+of what other line_ids are present.</p>
+<p>Args are dynamically validated and extracted from the schema.</p>
+<p>Parameters:
+- conc (Union[Concordance, ConcordanceSubset]): The full concordance or a subset of it.
+- **kwargs: Arguments defined dynamically in the schema.</p>
+<p>Returns:
+- dict: A dictionary containing:
+    - "sort_keys": A mapping from line IDs to their stable pseudo-random ranks.</p>
+<hr />
+<h1 id="file-sort_by_token_attributepy">File: sort_by_token_attribute.py<a class="headerlink" href="#file-sort_by_token_attributepy" title="Permanent link">&para;</a></h1>
+<h2 id="sort_by_token_attribute"><code>sort_by_token_attribute</code><a class="headerlink" href="#sort_by_token_attribute" title="Permanent link">&para;</a></h2>
+<p>Sorts the concordance lines by a specified token-level attribute.
+It supports sorting by a single token at a given offset (sorting_scope="token"),
+or by the whole left context (sorting_scope="left") or whole right context (sorting_scope="right").</p>
+<p>For left context, tokens are joined from right to left (i.e. starting with offset -1, then -2, etc.).</p>
+<p>Locale-specific sorting is attempted via pyicu; if unavailable, plain Unicode sorting is used.
+Additionally, outputs token_spans for the tokens used for sorting.</p>
+<p>Args are dynamically validated and extracted from the schema.</p>
+<p>Parameters:
+  - conc (Union[Concordance, ConcordanceSubset]): The full concordance or a subset of it.
+  - args (dict): Arguments include:
+      - tokens_attribute (str): The token attribute to sort by (e.g., "word", "lemma", "pos"). Default is "word".
+      - sorting_scope (str): Specifies which context to use for sorting:
+                           "token" for a single token at the given offset (default),
+                           "left" for the entire left context (tokens with offset &lt; 0 joined from right to left),
+                           "right" for the entire right context (tokens with offset &gt; 0 joined with a space).
+      - offset (int): The offset value to filter tokens by when sorting_scope=="token". Default is 0.
+      - case_sensitive (bool): If True, performs a case-sensitive sort. Default is False.
+      - reverse (bool): If True, sort in descending order. Default is False.
+      - backwards (bool): If True, reverses the string (e.g., for right-to-left sorting). Default is False.
+      - locale_str (str): ICU locale string for language-specific sorting. Default is "en".</p>
+<p>Returns:
+  dict: A dictionary containing:
+      - "sort_keys": A mapping from line IDs to their sorted ranks.
+      - "token_spans": A DataFrame with columns:
+            line_id, start_id_in_line, end_id_in_line, category, weight.
+      The token_spans represent the span (min and max id_in_line) of the tokens used for sorting.</p>
+<hr />
+<h1 id="file-partition_by_embeddingspy">File: partition_by_embeddings.py<a class="headerlink" href="#file-partition_by_embeddingspy" title="Permanent link">&para;</a></h1>
+<h2 id="partition_by_embeddings"><code>partition_by_embeddings</code><a class="headerlink" href="#partition_by_embeddings" title="Permanent link">&para;</a></h2>
+<p>Partitions lines based on embeddings stored in a concordance metadata column using clustering algorithms.</p>
+<p>Supports Agglomerative Clustering and K-Means.</p>
+<p>Args are dynamically validated and extracted from the schema.</p>
+<p>Parameters:
+- conc (Union[Concordance, ConcordanceSubset]): The full concordance or a subset of it.
+- args (dict): Arguments include:
+    - embeddings_column (str): The metadata column containing embeddings for each line.
+    - n_partitions (int): The number of partitions/clusters to create. Default is 5.
+    - metric (str): The metric to compute distances between embeddings (only for Agglomerative). Default is "cosine".
+    - linkage (str): The linkage criterion for Agglomerative Clustering. Default is "average".
+    - method (str): The clustering method ("agglomerative" or "kmeans"). Default is "agglomerative".</p>
+<p>Returns:
+- list: A list of dictionaries, where each dictionary contains:
+    - "label": The label of the cluster.
+    - "line_ids": A list of line IDs in the cluster.</p>
+<hr />
+<h1 id="file-annotate_sentence_transformerspy">File: annotate_sentence_transformers.py<a class="headerlink" href="#file-annotate_sentence_transformerspy" title="Permanent link">&para;</a></h1>
+<h2 id="annotate_sentence_transformers"><code>annotate_sentence_transformers</code><a class="headerlink" href="#annotate_sentence_transformers" title="Permanent link">&para;</a></h2>
+<p>Annotates a concordance with embeddings generated by a Sentence Transformer model.</p>
+<p>Args are dynamically validated and extracted from the schema.</p>
+<p>Parameters:
+- conc (Concordance or ConcordanceSubset): The concordance data.
+- args (dict): Arguments include:
+    - tokens_attribute (str): The positional attribute to extract tokens from (e.g., "word"). Default is "word".
+    - window_start (int, optional): The lower bound of the window (inclusive). Default is None (entire line).
+    - window_end (int, optional): The upper bound of the window (inclusive). Default is None (entire line).
+    - model_name (str): The name of the pretrained Sentence Transformer model. Default is "all-MiniLM-L6-v2".</p>
+<p>Returns:
+- pd.Series: A Pandas Series indexed by concordance line IDs, containing the embeddings for each line.</p>
+<hr />
+<h1 id="file-annotate_spacy_embeddingspy">File: annotate_spacy_embeddings.py<a class="headerlink" href="#file-annotate_spacy_embeddingspy" title="Permanent link">&para;</a></h1>
+<h2 id="annotate_spacy_embeddings"><code>annotate_spacy_embeddings</code><a class="headerlink" href="#annotate_spacy_embeddings" title="Permanent link">&para;</a></h2>
+<p>Annotates a concordance with embeddings generated by averaging spaCy word embeddings
+for tokens within a specified window.</p>
+<p>Args are dynamically validated and extracted from the schema.</p>
+<p>Parameters:
+- conc (Union[Concordance, ConcordanceSubset]): The full concordance or a subset of it.
+- args (dict): Arguments include:
+    - spacy_model (str): The spaCy model to use. Default is "en_core_web_md".
+    - tokens_attribute (str): The token attribute to use for creating line texts. Default is "word".
+    - exclude_values_attribute (str, optional): The attribute to filter out specific values.
+    - exclude_values_list (list, optional): The list of values to exclude.
+    - window_start (int): The lower bound of the token window (inclusive). Default is -5.
+    - window_end (int): The upper bound of the token window (inclusive). Default is 5.
+    - include_node (bool): Whether to include the node token (offset 0). Default is True.</p>
+<p>Returns:
+- pd.Series: A Pandas Series indexed by concordance line IDs, containing the averaged embeddings for each line.</p>
+<hr />
+<h1 id="file-select_by_metadata_attributepy">File: select_by_metadata_attribute.py<a class="headerlink" href="#file-select_by_metadata_attributepy" title="Permanent link">&para;</a></h1>
+<h2 id="select_by_metadata_attribute"><code>select_by_metadata_attribute</code><a class="headerlink" href="#select_by_metadata_attribute" title="Permanent link">&para;</a></h2>
+<p>Selects concordance lines based on a specified metadata attribute comparing it to a target value.</p>
+<p>When the target value is a list, only equality is used (the metadata value must equal one of the list items).
+When the target value is a single numeric value, a comparison operator (one of "==", "&lt;", "&lt;=", "&gt;", "&gt;=")
+can be provided. For string values, only equality is supported (with optional regex matching and case sensitivity).</p>
+<p>Parameters:
+    conc (Concordance or ConcordanceSubset): The concordance object.
+    args (dict): Arguments include:
+        - metadata_attribute (str): The metadata attribute to filter on.
+        - value (str, number, or list of str/number): The value (or list of values) to compare against.
+        - operator (str, optional): Comparison operator for numeric comparisons. One of "==", "&lt;", "&lt;=", "&gt;", "&gt;=".
+                                    Default is "==".
+                                    This parameter is ignored if a list is provided or if the value is a string.
+        - regex (bool, optional): If True, for string values use regex matching (only with equality). Default is False.
+        - case_sensitive (bool, optional): If True, perform case-sensitive matching for strings. Default is False.
+        - negative (bool, optional): If True, invert the selection. Default is False.</p>
+<p>Returns:
+    dict: A dictionary containing:
+        - "selected_lines": A sorted list of line IDs for which the metadata attribute meets the condition.</p>
+<hr />
+<h1 id="file-select_slotpy">File: select_slot.py<a class="headerlink" href="#file-select_slotpy" title="Permanent link">&para;</a></h1>
+<h2 id="select_slot"><code>select_slot</code><a class="headerlink" href="#select_slot" title="Permanent link">&para;</a></h2>
+<p>Selects the appropriate offset column based on the slot_id.</p>
+<p>Args are dynamically validated and extracted from the schema.</p>
+<p>Parameters:
+- conc (Union[Concordance, ConcordanceSubset]): The concordance or subset of data.
+- args (dict): Arguments include:
+    - slot_id (int): The slot identifier used to generate the offset column name.</p>
+<p>Returns:
+- dict: A dictionary containing:
+    - "slot_to_use": The slot ID being selected.
+    - "selected_lines": A list of all line IDs in the concordance.
+    - "line_count": The total number of lines.</p>
+<hr />
+<h1 id="file-select_by_token_attributepy">File: select_by_token_attribute.py<a class="headerlink" href="#file-select_by_token_attributepy" title="Permanent link">&para;</a></h1>
+<h2 id="select_by_token_attribute"><code>select_by_token_attribute</code><a class="headerlink" href="#select_by_token_attribute" title="Permanent link">&para;</a></h2>
+<p>Selects lines based on a positional attribute at a given offset.</p>
+<p>Args are dynamically validated and extracted from the schema.</p>
+<p>Parameters:
+  - conc (Union[Concordance, ConcordanceSubset]): The full concordance or a subset of it.
+  - **kwargs: Arguments defined dynamically in the schema.</p>
+<p>Returns:
+  - dict: A dictionary containing:
+      - "selected_lines": A list of line IDs where the condition is met.</p>
+<hr />
+<h1 id="file-select_manualpy">File: select_manual.py<a class="headerlink" href="#file-select_manualpy" title="Permanent link">&para;</a></h1>
+<h2 id="select_manual"><code>select_manual</code><a class="headerlink" href="#select_manual" title="Permanent link">&para;</a></h2>
+<p>Manually selects lines into a subset by providing a list of line IDs or by specifying groups
+(by labels or numbers) from the active node's grouping result. Groups may be partitions or clusters.
+In case of clusters (which may be nested), the entire grouping structure is traversed recursively
+to collect all groups that match the given identifiers.</p>
+<p>Additionally, this algorithm ensures that only lines that are present in the current node's
+selected_lines (or its closest ancestor that has this attribute) are allowed.</p>
+<p>Args:
+    conc (Union[Concordance, ConcordanceSubset]): The concordance or its subset.
+    args (dict): Arguments include:
+        - line_ids (list, optional): A list of specific line IDs to include in the subset.
+        - groups (list, optional): A list of group identifiers (either integers or strings) that
+          refer to groups (partitions or clusters) in the grouping_result.</p>
+<p>Returns:
+    dict: A dictionary containing:
+        - "selected_lines": A sorted list of unique selected line IDs.
+        - "line_count": The total number of selected lines.</p>
+<hr />
+<h1 id="file-select_set_operationpy">File: select_set_operation.py<a class="headerlink" href="#file-select_set_operationpy" title="Permanent link">&para;</a></h1>
+<h2 id="select_set_operation"><code>select_set_operation</code><a class="headerlink" href="#select_set_operation" title="Permanent link">&para;</a></h2>
+<p>Performs a set operation (union, intersection, difference, disjunctive union, complement)
+on the sets of lines from specified nodes in the analysis tree.</p>
+<p>Args are dynamically validated and extracted from the schema.</p>
+<p>Parameters:
+- conc (Union[Concordance, ConcordanceSubset]): The concordance or subset of data.
+- args (dict): Arguments include:
+    - operation_type (str): Type of set operation ('union', 'intersection', 'difference',
+                            'disjunctive union', 'complement').
+    - nodes (list): A list of nodes to retrieve selected lines from.</p>
+<p>Returns:
+- dict: A dictionary containing:
+    - "selected_lines": A sorted list of line IDs resulting from the set operation.
+    - "line_count": The total number of selected lines.</p>
+<hr />
+<h1 id="file-select_weighted_sample_by_metadatapy">File: select_weighted_sample_by_metadata.py<a class="headerlink" href="#file-select_weighted_sample_by_metadatapy" title="Permanent link">&para;</a></h1>
+<h2 id="select_weighted_sample_by_metadata"><code>select_weighted_sample_by_metadata</code><a class="headerlink" href="#select_weighted_sample_by_metadata" title="Permanent link">&para;</a></h2>
+<p>Selects a weighted sample of lines based on the distribution of a specified metadata attribute.</p>
+<p>Args are dynamically validated and extracted from the schema.</p>
+<p>Parameters:
+- conc (Concordance or ConcordanceSubset): The concordance data.
+- args (dict): Arguments include:
+    - metadata_attribute (str): The metadata attribute to stratify by (e.g., 'genre', 'speaker').
+    - sample_size (int): The total number of lines to sample.
+    - seed (int, optional): Random seed for reproducibility. Default is None.</p>
+<p>Returns:
+- dict: A dictionary containing:
+    - 'selected_lines': A list of line IDs that have been sampled.
+    - 'line_count': The total number of lines sampled.</p>
+<hr />
+<h1 id="file-partition_ngramspy">File: partition_ngrams.py<a class="headerlink" href="#file-partition_ngramspy" title="Permanent link">&para;</a></h1>
+<h2 id="partition_ngrams"><code>partition_ngrams</code><a class="headerlink" href="#partition_ngrams" title="Permanent link">&para;</a></h2>
+<p>Extracts ngram patterns from specified positions within each line and partitions the concordance
+according to the frequency of these patterns.</p>
+<p>Args are dynamically validated and extracted from the schema.</p>
+<p>Parameters:
+- conc (Union[Concordance, ConcordanceSubset]): The full concordance or a subset of it.
+- args (dict): Arguments include:
+    - positions (List[int]): The list of positions (offsets) to extract for the ngram pattern.
+    - tokens_attribute (str): The positional attribute to search within (e.g., 'word'). Default is 'word'.
+    - case_sensitive (bool): If True, the search is case-sensitive. Default is False.</p>
+<p>Returns:
+- list: A list of dictionaries, where each dictionary has:
+    - "label": The ngram pattern (as a string).
+    - "line_ids": A list of line IDs associated with the pattern.</p>
+<hr />
+<h1 id="file-rank_kwic_grouperpy">File: rank_kwic_grouper.py<a class="headerlink" href="#file-rank_kwic_grouperpy" title="Permanent link">&para;</a></h1>
+<h2 id="rank_kwic_grouper"><code>rank_kwic_grouper</code><a class="headerlink" href="#rank_kwic_grouper" title="Permanent link">&para;</a></h2>
+<p>Ranks lines based on the count of a search term within a specific positional attribute column
+within a given window (KWIC). Additionally, returns token spans for matching tokens.</p>
+<p>Args are dynamically validated and extracted from the schema.</p>
+<p>Parameters:
+- conc (Union[Concordance, ConcordanceSubset]): The full concordance or a subset of it.
+- **kwargs: Arguments defined dynamically in the schema.</p>
+<p>Returns:
+- dict: A dictionary containing:
+    - "rank_keys": A mapping from line IDs to their ranking values based on the count of the search term.
+    - "token_spans": A DataFrame with columns:
+          id, line_id, start_id_in_line, end_id_in_line, category, weight.
+      Here, category is "A", weight is 1, and since each span is one token long,
+      start_id_in_line equals end_id_in_line (an inclusive index).</p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
