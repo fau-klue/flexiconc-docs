@@ -31,19 +31,65 @@ Below is the exact specification of the output:
 
 ## 3. `grouping` (Optional)
 
-- **Type:** `List[dict]` (for partitions) or a nested dictionary (for clusters)
-- **Description:**  
-  Included only if a grouping algorithm has been applied to the node. The structure depends on the grouping strategy:
-    - **Partitions (Flat List):**  
-      Each partition is represented as a dictionary with:
-        - **`id`**: Unique integer identifier.
-          - **`label`**: Display label.
-          - **`line_ids`**: Ordered list of line numbers belonging to the partition (sorted according to the global ordering).
-          - *(Optional)* **`prototypes`**: List of prototypical line numbers.
-          - *(Optional)* **`info`**: Additional information (as a dictionary).
-    - **Clusters (Nested Structure):**  
-      Clusters are represented as a hierarchical (tree) structure. Each cluster dictionary contains the same keys as a partition plus:
-        - **`children`**: A list of sub-cluster dictionaries.
+- **Type:** `dict`
+- **Description:** Included only when a grouping / clustering algorithm has been applied to the node. The object bundles **column metadata** and the **actual list / tree of groups**.
+
+```jsonc
+"grouping": {
+  "column_info": [          
+    {"name": "Quality", "type": "float", "description": "Silhouette score", ...},
+    {"name": "Size",    "type": "int",   "description": "Number of lines",   ...}
+  ],
+  "partitions": [           // or "clusters" for hierarchical output
+    {
+      "id": 0,
+      "label": "Cluster_0",
+      "line_ids": [ ... ],    // ordered according to the global ordering
+      "prototypes": [ ... ],  // optional
+      "info": {               // keys correspond to column_info
+        "Quality": 0.72,
+        "Size": 37
+      }
+    },
+    {
+      "id": 1,
+      "label": "Cluster_1",
+      "line_ids": [ ... ],
+      "info": {
+        "Quality": 0.65,
+        "Size": 22
+      }
+    }
+  ]
+}
+```
+
+* **`grouping`** *(object)*  
+  * **`column_info`** – `List[dict]` describing each supplementary group‑level metric.  
+  * **`partitions`** or **`clusters`** – `List[Group]`; flat for partitions or hierarchical when using clusters.
+
+* **`Group`** *(object)*  
+  * **`id`** – `int`, required.  
+  * **`label`** – `str`, optional display name.  
+  * **`line_ids`** – `List[int]`, required for leaf groups (ordered by the view’s `ordering`).  
+  * **`prototypes`** – `List[int]`, optional representative lines.  
+  * **`info`** – `Dict[str, Any]` keyed by the entries in `column_info`.  
+  * **`children`** – `List[Group]`, only present for hierarchical clusterings.
+
+### 3.1 `column_info` `column_info`
+Lists group‑level columns (e.g. cluster quality, within‑variance, size).
+
+### 3.2 `partitions` / `clusters`
+A flat list (for partitions) or a recursive list (for clusters). Each dict can contain:
+
+| Key | Type | Always? | Meaning |
+|-----|------|---------|---------|
+| `id` | `int` | ✔︎ | Numeric identifier. |
+| `label` | `str` | ✖︎ | Human‑readable name to be shown in UI. |
+| `line_ids` | `List[int]` | ✔︎ for partitions / leaf clusters | Lines that belong to this group. Ordered according to the view’s `ordering`. |
+| `prototypes` | `List[int]` | ✖︎ | Representative line‑ids. |
+| `info` | `Dict[str,Any]` | ✔︎ (may be empty) | Values keyed by `column_info[i]["name"]`. |
+| `children` | `List[dict]` | ✖︎ | Present only for hierarchical clustering; same structure recursively. |
 
 ---
 
@@ -57,13 +103,42 @@ Below is the exact specification of the output:
 
 ---
 
-## 5. `line_info` (Optional)
+## 5. `line_info`  (Optional)
+This part of a concordance view typically includes ranking scores.
 
-- **Type:** `Dict[int, dict]`
-- **Description:**  
-  A mapping from each visible line number to per-line information.
-- **Source:** Derived from the `rank_keys` produced by ranking algorithms (under `ordering_result["rank_keys"]`).
-- **Filtering:** Only includes entries for line numbers present in `selected_lines`.
+```jsonc
+"line_info": {
+  "column_info": [ /* array of column metadata */ ],
+  "data": {
+	...,
+    12: {               // line_id
+      "Ranking: KWIC Grouper Ranker": 1,
+      "Ranking: GDEX": 0.485
+    },
+    13: {               // line_id
+      "Ranking: KWIC Grouper Ranker": 0,
+      "Ranking: GDEX": 0.871
+    },
+	...
+  }
+}
+```
+
+### 5.1 `column_info`
+Each object fully describes one column.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `key` | `str` | The human‑readable column name. Convention: `"Ranking: <Algorithm name>"`. |
+| `algorithm` | `str` | The exact name of the algorithm used for ranking. |
+| `algorithm_index_withing_ordering` | `int` | The position of the algorithm within the list of ordering algorithms used at current node (0-based). |
+| `type` | `str` | `"ranking"` for ranking algorithms. |
+| `description` | `str` | One‑line tooltip explaining the column. |
+
+### 5.2 `data`
+*Keys* → `line_id`.
+*Values* → dict mapping **column key** → line information, most typically ranking value (`int` or `float`).
+Only lines listed in `selected_lines` are included.
 
 ---
 
