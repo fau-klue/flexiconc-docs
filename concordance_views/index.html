@@ -12,7 +12,7 @@
         <link rel="prev" href="../adding_nodes/">
       
       
-        <link rel="next" href="../algorithms/selection/">
+        <link rel="next" href="../algorithms/selecting/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -326,6 +326,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="3. grouping (Optional)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-column_info-column_info" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 column_info column_info
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-partitions-clusters" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 partitions / clusters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -343,6 +367,30 @@
       5. line_info (Optional)
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="5. line_info (Optional)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-column_info" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 column_info
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 data
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -424,7 +472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../algorithms/selection/" class="md-nav__link">
+      <a href="../algorithms/selecting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -606,6 +654,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="3. grouping (Optional)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-column_info-column_info" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 column_info column_info
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-partitions-clusters" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 partitions / clusters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -623,6 +695,30 @@
       5. line_info (Optional)
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="5. line_info (Optional)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-column_info" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 column_info
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 data
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -700,26 +796,105 @@
 <hr />
 <h2 id="3-grouping-optional">3. <code>grouping</code> (Optional)<a class="headerlink" href="#3-grouping-optional" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Type:</strong> <code>List[dict]</code> (for partitions) or a nested dictionary (for clusters)</li>
-<li><strong>Description:</strong><br />
-  Included only if a grouping algorithm has been applied to the node. The structure depends on the grouping strategy:<ul>
-<li><strong>Partitions (Flat List):</strong><br />
-  Each partition is represented as a dictionary with:<ul>
-<li><strong><code>id</code></strong>: Unique integer identifier.</li>
-<li><strong><code>label</code></strong>: Display label.</li>
-<li><strong><code>line_ids</code></strong>: Ordered list of line numbers belonging to the partition (sorted according to the global ordering).</li>
-<li><em>(Optional)</em> <strong><code>prototypes</code></strong>: List of prototypical line numbers.</li>
-<li><em>(Optional)</em> <strong><code>info</code></strong>: Additional information (as a dictionary).</li>
+<li><strong>Type:</strong> <code>dict</code></li>
+<li><strong>Description:</strong> Included only when a grouping / clustering algorithm has been applied to the node. The object bundles <strong>column metadata</strong> and the <strong>actual list / tree of groups</strong>.</li>
 </ul>
+<div class="highlight"><pre><span></span><code>&quot;grouping&quot;: {
+  &quot;column_info&quot;: [          
+    {&quot;name&quot;: &quot;Quality&quot;, &quot;type&quot;: &quot;float&quot;, &quot;description&quot;: &quot;Silhouette score&quot;, ...},
+    {&quot;name&quot;: &quot;Size&quot;,    &quot;type&quot;: &quot;int&quot;,   &quot;description&quot;: &quot;Number of lines&quot;,   ...}
+  ],
+  &quot;partitions&quot;: [           // or &quot;clusters&quot; for hierarchical output
+    {
+      &quot;id&quot;: 0,
+      &quot;label&quot;: &quot;Cluster_0&quot;,
+      &quot;line_ids&quot;: [ ... ],    // ordered according to the global ordering
+      &quot;prototypes&quot;: [ ... ],  // optional
+      &quot;info&quot;: {               // keys correspond to column_info
+        &quot;Quality&quot;: 0.72,
+        &quot;Size&quot;: 37
+      }
+    },
+    {
+      &quot;id&quot;: 1,
+      &quot;label&quot;: &quot;Cluster_1&quot;,
+      &quot;line_ids&quot;: [ ... ],
+      &quot;info&quot;: {
+        &quot;Quality&quot;: 0.65,
+        &quot;Size&quot;: 22
+      }
+    }
+  ]
+}
+</code></pre></div>
+<ul>
+<li><strong><code>grouping</code></strong> <em>(object)</em>  </li>
+<li><strong><code>column_info</code></strong> – <code>List[dict]</code> describing each supplementary group‑level metric.  </li>
+<li>
+<p><strong><code>partitions</code></strong> or <strong><code>clusters</code></strong> – <code>List[Group]</code>; flat for partitions or hierarchical when using clusters.</p>
 </li>
-<li><strong>Clusters (Nested Structure):</strong><br />
-  Clusters are represented as a hierarchical (tree) structure. Each cluster dictionary contains the same keys as a partition plus:<ul>
-<li><strong><code>children</code></strong>: A list of sub-cluster dictionaries.</li>
-</ul>
+<li>
+<p><strong><code>Group</code></strong> <em>(object)</em>  </p>
 </li>
+<li><strong><code>id</code></strong> – <code>int</code>, required.  </li>
+<li><strong><code>label</code></strong> – <code>str</code>, optional display name.  </li>
+<li><strong><code>line_ids</code></strong> – <code>List[int]</code>, required for leaf groups (ordered by the view’s <code>ordering</code>).  </li>
+<li><strong><code>prototypes</code></strong> – <code>List[int]</code>, optional representative lines.  </li>
+<li><strong><code>info</code></strong> – <code>Dict[str, Any]</code> keyed by the entries in <code>column_info</code>.  </li>
+<li><strong><code>children</code></strong> – <code>List[Group]</code>, only present for hierarchical clusterings.</li>
 </ul>
-</li>
-</ul>
+<h3 id="31-column_info-column_info">3.1 <code>column_info</code> <code>column_info</code><a class="headerlink" href="#31-column_info-column_info" title="Permanent link">&para;</a></h3>
+<p>Lists group‑level columns (e.g. cluster quality, within‑variance, size).</p>
+<h3 id="32-partitions-clusters">3.2 <code>partitions</code> / <code>clusters</code><a class="headerlink" href="#32-partitions-clusters" title="Permanent link">&para;</a></h3>
+<p>A flat list (for partitions) or a recursive list (for clusters). Each dict can contain:</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Always?</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td><code>int</code></td>
+<td>✔︎</td>
+<td>Numeric identifier.</td>
+</tr>
+<tr>
+<td><code>label</code></td>
+<td><code>str</code></td>
+<td>✖︎</td>
+<td>Human‑readable name to be shown in UI.</td>
+</tr>
+<tr>
+<td><code>line_ids</code></td>
+<td><code>List[int]</code></td>
+<td>✔︎ for partitions / leaf clusters</td>
+<td>Lines that belong to this group. Ordered according to the view’s <code>ordering</code>.</td>
+</tr>
+<tr>
+<td><code>prototypes</code></td>
+<td><code>List[int]</code></td>
+<td>✖︎</td>
+<td>Representative line‑ids.</td>
+</tr>
+<tr>
+<td><code>info</code></td>
+<td><code>Dict[str,Any]</code></td>
+<td>✖</td>
+<td>Values keyed by <code>column_info[i]["name"]</code>.</td>
+</tr>
+<tr>
+<td><code>children</code></td>
+<td><code>List[dict]</code></td>
+<td>✖︎</td>
+<td>Present only for hierarchical clustering; same structure recursively.</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="4-global_info-optional">4. <code>global_info</code> (Optional)<a class="headerlink" href="#4-global_info-optional" title="Permanent link">&para;</a></h2>
 <ul>
@@ -732,14 +907,66 @@
 </li>
 </ul>
 <hr />
-<h2 id="5-line_info-optional">5. <code>line_info</code> (Optional)<a class="headerlink" href="#5-line_info-optional" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Type:</strong> <code>Dict[int, dict]</code></li>
-<li><strong>Description:</strong><br />
-  A mapping from each visible line number to per-line information.</li>
-<li><strong>Source:</strong> Derived from the <code>rank_keys</code> produced by ranking algorithms (under <code>ordering_result["rank_keys"]</code>).</li>
-<li><strong>Filtering:</strong> Only includes entries for line numbers present in <code>selected_lines</code>.</li>
-</ul>
+<h2 id="5-line_info-optional">5. <code>line_info</code>  (Optional)<a class="headerlink" href="#5-line_info-optional" title="Permanent link">&para;</a></h2>
+<p>This part of a concordance view typically includes ranking scores.</p>
+<div class="highlight"><pre><span></span><code>&quot;line_info&quot;: {
+  &quot;column_info&quot;: [ /* array of column metadata */ ],
+  &quot;data&quot;: {
+    ...,
+    12: {               // line_id
+      &quot;Ranking: KWIC Grouper Ranker&quot;: 1,
+      &quot;Ranking: GDEX&quot;: 0.485
+    },
+    13: {               // line_id
+      &quot;Ranking: KWIC Grouper Ranker&quot;: 0,
+      &quot;Ranking: GDEX&quot;: 0.871
+    },
+    ...
+  }
+}
+</code></pre></div>
+<h3 id="51-column_info">5.1 <code>column_info</code><a class="headerlink" href="#51-column_info" title="Permanent link">&para;</a></h3>
+<p>Each object fully describes one column.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>key</code></td>
+<td><code>str</code></td>
+<td>The human‑readable column name. Convention: <code>"Ranking: &lt;Algorithm name&gt;"</code>.</td>
+</tr>
+<tr>
+<td><code>algorithm</code></td>
+<td><code>str</code></td>
+<td>The exact name of the algorithm used for ranking.</td>
+</tr>
+<tr>
+<td><code>algorithm_index_withing_ordering</code></td>
+<td><code>int</code></td>
+<td>The position of the algorithm within the list of ordering algorithms used at current node (0-based).</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td><code>str</code></td>
+<td><code>"ranking"</code> for ranking algorithms.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>str</code></td>
+<td>One‑line tooltip explaining the column.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="52-data">5.2 <code>data</code><a class="headerlink" href="#52-data" title="Permanent link">&para;</a></h3>
+<p><em>Keys</em> → <code>line_id</code>.
+<em>Values</em> → dict mapping <strong>column key</strong> → line information, most typically ranking value (<code>int</code> or <code>float</code>).
+Only lines listed in <code>selected_lines</code> are included.</p>
 <hr />
 <h2 id="6-token_spans-optional">6. <code>token_spans</code> (Optional)<a class="headerlink" href="#6-token_spans-optional" title="Permanent link">&para;</a></h2>
 <ul>
