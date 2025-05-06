@@ -9,7 +9,7 @@ nav:
   - Adding Nodes: adding_nodes.md
   - Concordance Views: concordance_views.md
   - Algorithms:
-      - Selection: algorithms/selection.md
+      - Selecting: algorithms/selecting.md
       - Sorting: algorithms/sorting.md
       - Ranking: algorithms/ranking.md
       - Partitioning: algorithms/partitioning.md

@@ -313,11 +313,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../selection/" class="md-nav__link">
+      <a href="../selecting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Selection
+    Selecting
     
   </span>
   
@@ -408,6 +408,15 @@
   <a href="#kwic-grouper-ranker" class="md-nav__link">
     <span class="md-ellipsis">
       KWIC Grouper Ranker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rank-by-number-of-rare-words" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rank by Number of Rare Words
     </span>
   </a>
   
@@ -529,6 +538,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#rank-by-number-of-rare-words" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rank by Number of Rare Words
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -549,7 +567,7 @@
 <h2 id="kwic-grouper-ranker">KWIC Grouper Ranker<a class="headerlink" href="#kwic-grouper-ranker" title="Permanent link">&para;</a></h2>
 <p><strong>Path:</strong> <code>flexiconc/algorithms/rank_kwic_grouper.py</code></p>
 <p><strong>Description:</strong></p>
-<p>Ranks lines based on the count of a search term in a specified positional attribute within a window.</p>
+<p>Ranks lines based on the count of search terms in a specified token attribute within a window.</p>
 <p><strong>Arguments:</strong></p>
 <table>
 <thead>
@@ -561,19 +579,19 @@
 </thead>
 <tbody>
 <tr>
-<td>search_term</td>
-<td>string</td>
-<td>The term to search for within the tokens.</td>
+<td>search_terms</td>
+<td>array</td>
+<td>A list of terms to search for within the tokens.</td>
 </tr>
 <tr>
 <td>tokens_attribute</td>
 <td>string</td>
-<td>The positional attribute to search within (e.g., 'word').</td>
+<td>The token attribute to search within (e.g., 'word').</td>
 </tr>
 <tr>
 <td>regex</td>
 <td>boolean</td>
-<td>If True, use regex for matching the search term.</td>
+<td>If True, use regex for matching the search terms.</td>
 </tr>
 <tr>
 <td>case_sensitive</td>
@@ -608,19 +626,22 @@
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;search_term&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The term to search for within the tokens.&quot;</span>
+<span class="w">    </span><span class="nt">&quot;search_terms&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A list of terms to search for within the tokens.&quot;</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="nt">&quot;tokens_attribute&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The positional attribute to search within (e.g., &#39;word&#39;).&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The token attribute to search within (e.g., &#39;word&#39;).&quot;</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">&quot;default&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;word&quot;</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">&quot;x-eval&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dict(enum=list(set(conc.tokens.columns) - {&#39;id_in_line&#39;, &#39;line_id&#39;, &#39;offset&#39;}))&quot;</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="nt">&quot;regex&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;If True, use regex for matching the search term.&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;If True, use regex for matching the search terms.&quot;</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">&quot;default&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="nt">&quot;case_sensitive&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -650,7 +671,134 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">},</span>
 <span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="s2">&quot;search_term&quot;</span>
+<span class="w">    </span><span class="s2">&quot;search_terms&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+</details>
+
+<hr />
+<h2 id="rank-by-number-of-rare-words">Rank by Number of Rare Words<a class="headerlink" href="#rank-by-number-of-rare-words" title="Permanent link">&para;</a></h2>
+<p><strong>Path:</strong> <code>flexiconc/algorithms/rank_number_of_rare_words.py</code></p>
+<p><strong>Description:</strong></p>
+<p>Ranks lines by their count of rare words.</p>
+<p><strong>Arguments:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>p_attr</td>
+<td>string</td>
+<td>Token attribute to look up in the frequency list</td>
+</tr>
+<tr>
+<td>freq_list</td>
+<td>string</td>
+<td>Name of a registered frequency list</td>
+</tr>
+<tr>
+<td>threshold</td>
+<td>integer</td>
+<td>Frequency threshold below which tokens count as rare</td>
+</tr>
+<tr>
+<td>rank_threshold</td>
+<td>integer</td>
+<td>Rank threshold above which tokens count as rare</td>
+</tr>
+<tr>
+<td>window_start</td>
+<td>integer</td>
+<td>Lower bound of the token-offset window (inclusive)</td>
+</tr>
+<tr>
+<td>window_end</td>
+<td>integer</td>
+<td>Upper bound of the token-offset window (inclusive)</td>
+</tr>
+<tr>
+<td>case_sensitive</td>
+<td>boolean</td>
+<td>Match tokens against the frequency list case-sensitively</td>
+</tr>
+<tr>
+<td>positive</td>
+<td>boolean</td>
+<td>If True, the score is the raw count of rare tokens (more-rare → higher score). If False (default), score is the <em>negative</em> count so lines with fewer rare words rank higher.</td>
+</tr>
+<tr>
+<td>ignore_attrs</td>
+<td>object</td>
+<td>Mapping of token attrs → list of values to ignore</td>
+</tr>
+</tbody>
+</table>
+<details>
+<summary>Show full JSON schema</summary>
+
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;p_attr&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Token attribute to look up in the frequency list&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;default&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;word&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;x-eval&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dict(enum=list(set(conc.tokens.columns) - {&#39;id_in_line&#39;,&#39;line_id&#39;,&#39;offset&#39;}))&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;freq_list&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Name of a registered frequency list&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;x-eval&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dict(enum=list(conc.resources.list(&#39;frequency_list&#39;).keys()))&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;threshold&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Frequency threshold below which tokens count as rare&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;rank_threshold&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Rank threshold above which tokens count as rare&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;window_start&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Lower bound of the token-offset window (inclusive)&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;window_end&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Upper bound of the token-offset window (inclusive)&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;case_sensitive&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Match tokens against the frequency list case-sensitively&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;default&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;positive&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;If True, the score is the raw count of rare tokens (more-rare \u2192 higher score). If False (default), score is the *negative* count so lines with fewer rare words rank higher.&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;default&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;ignore_attrs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Mapping of token attrs \u2192 list of values to ignore&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;default&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
+<span class="w">      </span><span class="nt">&quot;x-eval&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dict(propertyNames={&#39;enum&#39;: list(set(conc.tokens.columns) - {&#39;id_in_line&#39;,&#39;line_id&#39;,&#39;offset&#39;})})&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;additionalProperties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;p_attr&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;freq_list&quot;</span>
 <span class="w">  </span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>

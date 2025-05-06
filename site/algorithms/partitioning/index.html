@@ -313,11 +313,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../selection/" class="md-nav__link">
+      <a href="../selecting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Selection
+    Selecting
     
   </span>
   
@@ -453,15 +453,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#partition-with-openai" class="md-nav__link">
-    <span class="md-ellipsis">
-      Partition with OpenAI
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -569,15 +560,6 @@
   <a href="#partition-by-ngrams" class="md-nav__link">
     <span class="md-ellipsis">
       Partition by Ngrams
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#partition-with-openai" class="md-nav__link">
-    <span class="md-ellipsis">
-      Partition with OpenAI
     </span>
   </a>
   
@@ -759,7 +741,7 @@
 <h2 id="partition-by-ngrams">Partition by Ngrams<a class="headerlink" href="#partition-by-ngrams" title="Permanent link">&para;</a></h2>
 <p><strong>Path:</strong> <code>flexiconc/algorithms/partition_ngrams.py</code></p>
 <p><strong>Description:</strong></p>
-<p>Extracts ngram patterns from specified positions and partitions the concordance according to their frequency in the concordance lines. See Anthony (2018) and subsequent work for more information.</p>
+<p>Extracts ngram patterns from specified positions and partitions the concordance according to their frequency in the concordance lines. Compare Anthony's (2018) KWIC Patterns and subsequent work.</p>
 <p><strong>Arguments:</strong></p>
 <table>
 <thead>
@@ -814,89 +796,6 @@
 <span class="w">  </span><span class="p">},</span>
 <span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="s2">&quot;positions&quot;</span>
-<span class="w">  </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
-
-</details>
-
-<hr />
-<h2 id="partition-with-openai">Partition with OpenAI<a class="headerlink" href="#partition-with-openai" title="Permanent link">&para;</a></h2>
-<p><strong>Path:</strong> <code>flexiconc/algorithms/partition_openai_semantic.py</code></p>
-<p><strong>Description:</strong></p>
-<p>Sends a list of lines to OpenAI and requests clustering into n groups with labels, using structured outputs for guaranteed JSON schema adherence.</p>
-<p><strong>Arguments:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>openai_api_key</td>
-<td>string</td>
-<td>The API key for OpenAI.</td>
-</tr>
-<tr>
-<td>n_partitions</td>
-<td>integer</td>
-<td>The number of partitions/clusters to create.</td>
-</tr>
-<tr>
-<td>token_attr</td>
-<td>string</td>
-<td>The token attribute to use for creating line texts.</td>
-</tr>
-<tr>
-<td>model</td>
-<td>string</td>
-<td>The OpenAI model to use.</td>
-</tr>
-<tr>
-<td>introduction_line</td>
-<td>string</td>
-<td>Customizable prompt for the clustering task.</td>
-</tr>
-</tbody>
-</table>
-<details>
-<summary>Show full JSON schema</summary>
-
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;openai_api_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The API key for OpenAI.&quot;</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="nt">&quot;n_partitions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The number of partitions/clusters to create.&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;default&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;x-eval&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dict(maximum=node.line_count)&quot;</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="nt">&quot;token_attr&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The token attribute to use for creating line texts.&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;default&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;word&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;x-eval&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dict(enum=list(set(conc.tokens.columns) - {&#39;id_in_line&#39;, &#39;line_id&#39;, &#39;offset&#39;}))&quot;</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The OpenAI model to use.&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;default&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gpt-4o-2024-11-20&quot;</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="nt">&quot;introduction_line&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Customizable prompt for the clustering task.&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;default&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;You are given a list of lines of text. Cluster them into {n_partitions} clusters by the pattern in which the node word occurs. Ensure that none of the {n_partitions} clusters is empty.&quot;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="s2">&quot;openai_api_key&quot;</span>
 <span class="w">  </span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
