@@ -5,16 +5,21 @@ theme:
 
 nav:
   - General: index.md
-  - Loading Concordance: loading_concordance.md
-  - Adding Nodes: adding_nodes.md
-  - Concordance Views: concordance_views.md
+  - FlexiConc for Users:
+      - Loading Concordances: loading_concordances.md
+      - Adding Nodes: adding_nodes.md
+      - Jupyter Notebook Utilities: notebook_utils.md
+      - Loading Texts: loading_texts.md
+  - FlexiConc for Developers:
+      - Representing Concordances: representing_concordances.md
+      - Concordance Views: concordance_views.md
   - Algorithms:
       - Selecting: algorithms/selecting.md
       - Sorting: algorithms/sorting.md
       - Ranking: algorithms/ranking.md
       - Partitioning: algorithms/partitioning.md
       - Annotation: algorithms/annotation.md
-  - Examples: examples.md
+  # - Examples: examples.md
 
 markdown_extensions:
   - toc:

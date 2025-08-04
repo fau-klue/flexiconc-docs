@@ -1,6 +1,6 @@
 # FlexiConc
 
-This guide provides a comprehensive overview of FlexiConc, a Python package engineered to streamline and enhance the computational analysis of concordances in corpus linguistic research.
+This guide provides a comprehensive overview of FlexiConc, a Python package to streamline and enhance the computational analysis of concordances in corpus linguistic research.
 
 ---
 
@@ -39,7 +39,7 @@ FlexiConc is built around three fundamental strategies:
 
 ### Analysis Trees
 
-A unique feature of FlexiConc is its **analysis tree** structure. Each node in this tree represents an operation (either a selection or a rearrangement) applied to the concordance data. This hierarchical record provides:
+A crucial feature of FlexiConc is its **analysis tree** structure. Each node in this tree represents an operation (either a selection or a rearrangement) applied to the concordance data. This hierarchical record provides:
 
 - **Transparency**: A complete history of the analytical steps performed.
 - **Reproducibility**: Easy revisitation and validation of the analysis process.
@@ -64,4 +64,7 @@ FlexiConc is ideally suited for:
 
 ---
 
-For further details, examples, and API references, please navigate through the remaining sections of this documentation.
+To the users of FlexiConc, we recommend exploring the following sections for detailed guidance on using the package:
+- [Loading Concordances](loading_concordances.md): How to load concordance data from various sources.
+- [Adding Nodes](adding_nodes.md): How to add nodes to the analysis tree for further analysis.
+- [Noteb]
