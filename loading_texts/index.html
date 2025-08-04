@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../loading_concordances/">
+        <link rel="prev" href="../notebook_utils/">
       
       
-        <link rel="next" href="../notebook_utils/">
+        <link rel="next" href="../representing_concordances/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Adding Nodes - FlexiConc</title>
+        <title>Loading Texts - FlexiConc</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#adding-nodes-in-flexiconc" class="md-skip">
+        <a href="#loading-texts-to-generate-concordances" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Adding Nodes
+              Loading Texts
             
           </span>
         </div>
@@ -269,31 +269,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Adding Nodes
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../adding_nodes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -303,53 +282,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#adding-subset-nodes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Adding Subset Nodes
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#adding-arrangement-nodes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Adding Arrangement Nodes
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -381,10 +313,31 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../loading_texts/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Loading Texts
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -394,6 +347,92 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-loading-plain-texts-with-textimport" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Loading Plain Texts with TextImport
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Loading Plain Texts with TextImport">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-database-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1. Database Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-creating-a-database-from-raw-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2. Creating a Database from Raw Files
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2. Creating a Database from Raw Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-building-concordances-from-queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3. Building Concordances from Queries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-using-the-textimport-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2. Using the TextImport API
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -673,29 +712,68 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#1-loading-plain-texts-with-textimport" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview
+      1. Loading Plain Texts with TextImport
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Loading Plain Texts with TextImport">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-database-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1. Database Structure
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#adding-subset-nodes" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#12-creating-a-database-from-raw-files" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding Subset Nodes
+      1.2. Creating a Database from Raw Files
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2. Creating a Database from Raw Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#adding-arrangement-nodes" class="md-nav__link">
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-building-concordances-from-queries" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding Arrangement Nodes
+      1.3. Building Concordances from Queries
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-using-the-textimport-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2. Using the TextImport API
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -715,93 +793,98 @@
 
 
 
-<h1 id="adding-nodes-in-flexiconc">Adding Nodes in FlexiConc<a class="headerlink" href="#adding-nodes-in-flexiconc" title="Permanent link">&para;</a></h1>
-<p>FlexiConc organizes its analysis workflow using an analysis tree where each node represents either a subset of concordance lines or an arrangement (ordering and grouping) of those lines. The tree is expanded by applying user-defined combinations of concordances reading <strong>algorithms</strong> to the nodes in the tree, thus producing child or sibling nodes. Each node in the analysis tree corresponds to a <strong>concordance view</strong> which can be visualised by the host app. This document explains how to add nodes to the analysis tree using FlexiConc’s API.</p>
+<h1 id="loading-texts-to-generate-concordances">Loading Texts to Generate Concordances<a class="headerlink" href="#loading-texts-to-generate-concordances" title="Permanent link">&para;</a></h1>
+<p>This document explains how to load your own texts into FlexiConc for generating concordances. Currently, FlexiConc supports loading raw texts and Wmatrix corpora, using the <code>TextImport</code> interface.</p>
 <hr />
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>There are two main types of nodes:</p>
+<h2 id="1-loading-plain-texts-with-textimport">1. Loading Plain Texts with <code>TextImport</code><a class="headerlink" href="#1-loading-plain-texts-with-textimport" title="Permanent link">&para;</a></h2>
+<p>FlexiConc's <code>TextImport</code> class allows you to load and tokenize your own text files, build a searchable SQLite database, and run queries producing FlexiConc concordances.</p>
+<h3 id="11-database-structure">1.1. Database Structure<a class="headerlink" href="#11-database-structure" title="Permanent link">&para;</a></h3>
+<p>A <code>TextImport</code> SQLite database contains:</p>
 <ul>
-<li><strong>Subset Nodes</strong>: Represent subsets of concordance lines obtained by applying a selection algorithm.</li>
-<li><strong>Arrangement Nodes</strong>: Represent ordered and/or grouped views of concordance lines generated by applying sorting and grouping algorithms.</li>
-</ul>
-<p>Nodes are added to the analysis tree via methods provided on an existing node (usually starting from the root):</p>
-<ul>
-<li><code>add_subset_node(algo_tuple, keep_arrangement=True)</code></li>
-<li><code>add_arrangement_node(ordering=[], grouping=None)</code></li>
-</ul>
-<hr />
-<h2 id="adding-subset-nodes">Adding Subset Nodes<a class="headerlink" href="#adding-subset-nodes" title="Permanent link">&para;</a></h2>
-<p>A subset node is created by applying a selection algorithm to an existing node. The selection algorithm is specified as a tuple:</p>
-<div class="highlight"><pre><span></span><code>(algorithm_name, args)
-</code></pre></div>
-<ul>
-<li><strong>algorithm_name</strong>: A string identifying the selection algorithm (e.g., <code>"Random Sample"</code>, <code>"Select by Metadata Attribute"</code>).</li>
-<li><strong>args</strong>: A dictionary of arguments required by the algorithm (e.g., <code>{'sample_size': 20, 'seed': 111}</code>).</li>
-</ul>
-<p>When you call <code>add_subset_node</code>, FlexiConc:
-1. Checks if a sibling node with the same algorithm configuration exists. If so, it returns that node.
-2. Otherwise, it executes the selection algorithm on the current node’s concordance subset.
-3. Creates a new subset node that contains the selected line IDs.
-4. Optionally, it copies and restricts arrangement information from the parent node.</p>
-<p><strong>Example:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Starting from the root node of the analysis tree, add a subset node</span>
-<span class="n">subset_node</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">add_subset_node</span><span class="p">(</span>
-    <span class="p">(</span><span class="s2">&quot;Random Sample&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;sample_size&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;seed&#39;</span><span class="p">:</span> <span class="mi">111</span><span class="p">})</span>
-<span class="p">)</span>
-</code></pre></div>
-<p>This creates a new node that represents a random sample of 20 lines from the current subset.</p>
-<p>Another example using selecting by metadata attributes:</p>
-<div class="highlight"><pre><span></span><code><span class="n">subset_node_long</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">add_subset_node</span><span class="p">(</span>
-    <span class="p">(</span><span class="s2">&quot;Select by Metadata Attribute&quot;</span><span class="p">,</span> <span class="p">{</span>
-        <span class="s1">&#39;metadata_attribute&#39;</span><span class="p">:</span> <span class="s2">&quot;suspension_type&quot;</span><span class="p">,</span> 
-        <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s2">&quot;long&quot;</span><span class="p">,</span>
-        <span class="s1">&#39;operator&#39;</span><span class="p">:</span> <span class="s2">&quot;==&quot;</span><span class="p">,</span>
-        <span class="s1">&#39;regex&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-        <span class="s1">&#39;case_sensitive&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-        <span class="s1">&#39;negative&#39;</span><span class="p">:</span> <span class="kc">False</span>
-    <span class="p">})</span>
-<span class="p">)</span>
-</code></pre></div>
-<p>This node will include only those lines where the <code>suspension_type</code> is equal to <code>"long"</code>.</p>
-<hr />
-<h2 id="adding-arrangement-nodes">Adding Arrangement Nodes<a class="headerlink" href="#adding-arrangement-nodes" title="Permanent link">&para;</a></h2>
-<p>An arrangement node provides a new view by ordering and/or grouping the concordance lines. This is done via:</p>
-<div class="highlight"><pre><span></span><code>add_arrangement_node(ordering=[], grouping=None)
-</code></pre></div>
-<ul>
-<li><strong>ordering</strong>: A list of tuples. Each tuple has the form <code>(algorithm_name, args)</code>, where:</li>
-<li><strong>algorithm_name</strong> is the name of an ordering algorithm (e.g., <code>"Sort by Token-Level Attribute"</code>).</li>
 <li>
-<p><strong>args</strong> is a dictionary of parameters for that algorithm (e.g., <code>{'tokens_attribute': "word", 'sorting_scope': "right", 'reverse': True}</code>).</p>
+<p><strong>tokens</strong> table: One row per token, with at least:</p>
 </li>
 <li>
-<p><strong>grouping</strong>: An optional tuple of the form <code>(algorithm_name, args)</code> for a grouping algorithm (e.g., <code>("Partition by Ngrams", {'tokens_attribute': "pos", 'positions': [-1], 'case_sensitive': True})</code>). If no grouping is needed, this can be set to <code>None</code>.</p>
+<p><code>cpos</code> (corpus position, integer, unique)</p>
 </li>
+<li><code>word</code> (surface form, string)</li>
+<li>
+<p>Optional: <code>lemma</code>, <code>pos</code>, etc.</p>
+</li>
+<li>
+<p><strong>spans_*</strong> tables: Boundaries of token spans, such as sentences/files. Examples:</p>
+</li>
+<li>
+<p><code>spans_s</code>: Sentence spans, columns: <code>id</code>, <code>start</code>, <code>end</code>.</p>
+</li>
+<li><code>spans_file</code>: File/document spans, columns: <code>id</code>, <code>start</code>, <code>end</code>.</li>
 </ul>
-<p>When you call <code>add_arrangement_node</code>, FlexiConc:
-1. Executes each ordering algorithm and combines their sort keys to produce a final ordering.
-2. If a grouping algorithm is provided, it applies the algorithm to partition the lines.
-3. Creates a new arrangement node that contains the ordering result, grouping result (if any), and associated token span data.</p>
-<p><strong>Example:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="n">arrangement_node</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">add_arrangement_node</span><span class="p">(</span>
-    <span class="n">ordering</span><span class="o">=</span><span class="p">[</span>
-        <span class="p">(</span><span class="s2">&quot;Sort by Token-Level Attribute&quot;</span><span class="p">,</span> <span class="p">{</span>
-            <span class="s1">&#39;tokens_attribute&#39;</span><span class="p">:</span> <span class="s2">&quot;word&quot;</span><span class="p">,</span>
-            <span class="s1">&#39;sorting_scope&#39;</span><span class="p">:</span> <span class="s2">&quot;right&quot;</span><span class="p">,</span>
-            <span class="s1">&#39;reverse&#39;</span><span class="p">:</span> <span class="kc">True</span>
-        <span class="p">})</span>
-    <span class="p">],</span>
-    <span class="n">grouping</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Partition by Ngrams&quot;</span><span class="p">,</span> <span class="p">{</span>
-        <span class="s1">&#39;tokens_attribute&#39;</span><span class="p">:</span> <span class="s2">&quot;pos&quot;</span><span class="p">,</span>
-        <span class="s1">&#39;positions&#39;</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
-        <span class="s1">&#39;case_sensitive&#39;</span><span class="p">:</span> <span class="kc">True</span>
-    <span class="p">})</span>
+<p>Span tables can contain any optional columns, such as <code>filename</code> for <code>spans_file</code>.</p>
+<p>You can add custom span types as needed.</p>
+<h3 id="12-creating-a-database-from-raw-files">1.2. Creating a Database from Raw Files<a class="headerlink" href="#12-creating-a-database-from-raw-files" title="Permanent link">&para;</a></h3>
+<p>Use <code>TextImport.load_files</code> to tokenize plain text files (or directories), split into sentences, and build all necessary tables:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">flexiconc</span><span class="w"> </span><span class="kn">import</span> <span class="n">TextImport</span>
+
+<span class="n">ti</span> <span class="o">=</span> <span class="n">TextImport</span><span class="p">()</span>  <span class="c1"># Creates a temporary in-memory DB</span>
+
+<span class="n">ti</span><span class="o">.</span><span class="n">load_files</span><span class="p">(</span>
+    <span class="n">paths</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;texts/file1.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;texts/file2.txt&quot;</span><span class="p">],</span>  <span class="c1"># List of text files or folders</span>
+    <span class="n">db_name</span><span class="o">=</span><span class="s2">&quot;mycorpus.sqlite&quot;</span><span class="p">,</span>                     <span class="c1"># Save DB to disk (optional)</span>
+    <span class="n">use_spacy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>                               <span class="c1"># Use regex tokenization rules (or set True for spaCy)</span>
+    <span class="n">spacy_model</span><span class="o">=</span><span class="s2">&quot;en_core_web_sm&quot;</span><span class="p">,</span>
+    <span class="n">lemma</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>                                   <span class="c1"># Add lemma using spaCy</span>
+    <span class="n">pos</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>                                     <span class="c1"># Add part-of-speech using spaCy</span>
+    <span class="n">tag</span><span class="o">=</span><span class="kc">False</span>                                      <span class="c1"># Add detailed POS tags using spaCy</span>
 <span class="p">)</span>
 </code></pre></div>
-<p>This example creates an arrangement node that orders the lines based on a token-level attribute (here, sorting by the right context of the token <code>"word"</code> in reverse order) and partitions the lines into groups based on the last token’s part-of-speech (using an n-gram partitioning algorithm).</p>
-<hr />
-<p>As a Jupyter Notebook user, you will probably be interested in the interactive UI for adding nodes. See further documentation on <a href="../notebook_utils/">Jupyter Notebook utilities</a>.</p>
-<p>As a host app developer, you might want to implement your own visualizations for nodes. See the <a href="../concordance_views/">Concordance Views</a> documentation for details on FlexiConc output used to represent nodes visually.</p>
+<h4 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Accepts files or directories (recursively scans folders).</li>
+<li>Supports basic regex sentence splitting or spaCy-based segmentation and annotation.</li>
+</ul>
+<h3 id="13-building-concordances-from-queries">1.3. Building Concordances from Queries<a class="headerlink" href="#13-building-concordances-from-queries" title="Permanent link">&para;</a></h3>
+<p>Once your corpus is loaded, you can search it and build concordances in a single step using <code>concordance_from_query</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Run a search and build a FlexiConc-style concordance object in one call</span>
+<span class="n">conc</span> <span class="o">=</span> <span class="n">ti</span><span class="o">.</span><span class="n">concordance_from_query</span><span class="p">(</span>
+    <span class="n">query</span><span class="o">=</span><span class="s2">&quot;climate change&quot;</span><span class="p">,</span>           <span class="c1"># Plain text or CQP-style search string</span>
+    <span class="n">context_size</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>              <span class="c1"># (left, right) context window size</span>
+    <span class="n">limit_context_span</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span>           <span class="c1"># Limit context to a sentence (or use &quot;file&quot; for file/document); leave empty for no limiting by span</span>
+    <span class="n">span_types_for_metadata</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;file&#39;</span><span class="p">]</span>  <span class="c1"># Which spans to include as metadata (optional)</span>
+<span class="p">)</span>
+
+<span class="o">---</span>
+
+<span class="c1">## 2. Loading Wmatrix Corpora</span>
+
+<span class="n">For</span> <span class="n">corpora</span> <span class="n">hosted</span> <span class="ow">in</span> <span class="n">Wmatrix</span><span class="p">,</span> <span class="n">FlexiConc</span> <span class="n">provides</span> <span class="n">a</span> <span class="n">streamlined</span> <span class="kn">import</span><span class="w"> </span><span class="nn">function.</span> <span class="n">The</span> <span class="o">**</span><span class="n">recommended</span> <span class="n">entry</span> <span class="n">point</span><span class="o">**</span> <span class="ow">is</span> <span class="n">the</span> <span class="err">`</span><span class="n">load</span><span class="err">`</span> <span class="n">function</span><span class="o">.</span>
+
+<span class="err">```</span><span class="n">python</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">flexiconc.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">wmatrix</span>
+
+<span class="n">ti</span> <span class="o">=</span> <span class="n">wmatrix</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
+    <span class="n">corpus_name</span><span class="o">=</span><span class="s2">&quot;LabourManifesto2005&quot;</span><span class="p">,</span>   <span class="c1"># Wmatrix corpus name (as in the web interface)</span>
+    <span class="n">username</span><span class="o">=</span><span class="s2">&quot;your_username&quot;</span><span class="p">,</span>
+    <span class="n">password</span><span class="o">=</span><span class="s2">&quot;your_password&quot;</span><span class="p">,</span>
+    <span class="n">db_filename</span><span class="o">=</span><span class="s2">&quot;labour2005.db&quot;</span>           <span class="c1"># Local file to store the database</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>If you have a Wmatrix corpus in a local SQLite database, you can load it directly:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">flexiconc.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">wmatrix</span>
+
+<span class="n">ti</span> <span class="o">=</span> <span class="n">wmatrix</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
+    <span class="n">db_filename</span><span class="o">=</span><span class="s2">&quot;labour2005.db&quot;</span>           <span class="c1"># Local file where the database is stored</span>
+<span class="p">)</span>
+</code></pre></div>
+<h3 id="22-using-the-textimport-api">2.2. Using the TextImport API<a class="headerlink" href="#22-using-the-textimport-api" title="Permanent link">&para;</a></h3>
+<p>Once loaded, <code>ti</code> works just like for plain text:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Run a concordance query</span>
+<span class="n">conc</span> <span class="o">=</span> <span class="n">ti</span><span class="o">.</span><span class="n">concordance_from_query</span><span class="p">(</span>
+    <span class="n">query</span><span class="o">=</span><span class="s2">&quot;antisocial behaviour&quot;</span><span class="p">,</span>           <span class="c1"># Plain text or CQP-style search string</span>
+    <span class="n">context_size</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>              <span class="c1"># (left, right) context window size</span>
+    <span class="n">limit_context_span</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span>           <span class="c1"># Limit context to a sentence (or use &quot;file&quot; for file/document); leave empty for no limiting by span</span>
+    <span class="n">span_types_for_metadata</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;file&#39;</span><span class="p">]</span>  <span class="c1"># Which spans to include as metadata (optional)</span>
+<span class="p">)</span>
+</code></pre></div>
 
 
 
