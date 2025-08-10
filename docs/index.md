@@ -64,7 +64,4 @@ FlexiConc is ideally suited for:
 
 ---
 
-To the users of FlexiConc, we recommend exploring the following sections for detailed guidance on using the package:
-- [Loading Concordances](loading_concordances.md): How to load concordance data from various sources.
-- [Adding Nodes](adding_nodes.md): How to add nodes to the analysis tree for further analysis.
-- [Noteb]
+To the users of FlexiConc, we recommend exploring the sections listed under **Flexiconc for Users** in the navigation menu as well as the **Algorithms** section for detailed information on the available selecting, ordering, and grouping algorithms.
